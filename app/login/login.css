@@ -1,0 +1,50 @@
+.login_container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-bottom: 20px;
+    
+
+    
+}
+.login_wrapper{
+    background-color: rgb(237, 237, 237);
+    box-shadow: -8px 10px 14px -13px #272727;
+
+}
+.input_wrapper{
+    background: white;  
+    border-radius: 10px;
+}
+.login_button{
+    background-color: rgb(255, 212, 22);
+}
+.login_page_button{
+
+}
+span {
+    color: white !important;
+    margin-right: 10px;
+}
+.icons {
+    color: white !important;
+}
+.login_form_input {
+    background-color: transparent;
+}
+.login_form_input:focus{
+    border: none;
+    outline: none;
+}
+.login_form_input::placeholder{
+    color: rgb(97, 189, 53);
+}
+
+.singup_container{
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+
+}
