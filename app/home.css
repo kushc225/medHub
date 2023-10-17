@@ -10,7 +10,7 @@
     overflow: hidden;
 }
 .navbar{
-    box-shadow: -13px 19px 20px -15px black;
+    box-shadow: -3px 5px 20px -15px black;
 
 }
 .home_side_image{
@@ -35,20 +35,12 @@
     box-shadow: 2px 0px 19px 1px #eeff00;
 
 }
-.home_button{
-    transition: all 0.7s ease;
 
+
+text{
+    color: rgb(175, 255, 3) !important;
 }
-.home_button button{
-    box-shadow: -12px 16px 20px 3px #9E9E9E;
 
-
-}
-.home_button button:hover{
-    box-shadow: -12px 16px 20px 3px #9E9E9E;
-
-    color: #ffff;
-}
-.home_page_para{
-    /* word-spacing: 0.6rem; */
+.bg-body {
+    background: #252525;
 }

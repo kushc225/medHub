@@ -1,51 +1,148 @@
 'use client'
 import React, { useState } from 'react'
 import LockOpenIcon from '@mui/icons-material/LockOpen';
-import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
+import loginAnimation from '../../animation/login.json'
+import { useContext } from 'react';
+import loginAnimation2 from '../../animation/login2.json'
+import loginAnimation3 from '../../animation/login3.json'
 import Person4OutlinedIcon from '@mui/icons-material/Person4Outlined';
+import axios from 'axios';
+import { useFormik } from 'formik';
+import Lottie from 'react-lottie';
 import './login.css'
+import { loginSchema } from '@/assests/Schema/Schema';
+import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from 'react-toastify';
+import UserContext from '@/context/UserContext';
+
 const Login = () => {
+    const { user, setUser } = useContext(UserContext);
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: loginAnimation,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice",
+        },
+    };
+    const initialValues = {
+        email: "",
+        password: ''
+    }
+
+    const router = useRouter();
+
+    const { errors, touched, handleSubmit, handleChange, handleBlur, values } = useFormik({
+        initialValues: initialValues,
+        validationSchema: loginSchema,
+        onSubmit: async (values) => {
+            const toast_hanlder_object = {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            };
+
+            try {
+                let res = await axios.post('/api/login', values)
+                res = res.data;
+                if (res.success) {
+                    // console.log(values)
+                    setUser({ email: values.email })
+                    // console.log(user);
+                    localStorage.setItem("token", res.token);
+                    router.push(`/about`);
+                } else {
+                    toast.error(res.data.msg, toast_hanlder_object)
+                }
+            } catch (err) {
+                toast.error('Invalid Credentials', toast_hanlder_object)
+            }
+        }
+    })
     return (
-        <div className='login_container  w-screen md:w-2/5 '>
-            <div className='login_wrapper mx-4 flex flex-col px-4 py-4 rounded-xl'>
-                <div className='flex justify-around pt-1 '>
-                    <div className='login_button px-7 p-2  rounded-lg  text-white flex justify-center items-center shadow-lg'><span><Person4OutlinedIcon className=' icons' /></span> <button>Sign in</button></div>
-                    <div className='login_button px-7 py-2 shadow-lg  rounded-lg  text-white flex justify-center items-center'><span><PersonAddAltOutlinedIcon className=' icons' /></span> <button>Sign up</button></div>
-                </div>
-                <div className=' mt-12  px-2 pt-2 '>
-                    <div className=' flex items-center rounded-xl shadow-sm mt-7 input_wrapper px-2 py-2 '>
-                        <div>
-                            <Person4OutlinedIcon className='' />
+        <>
+
+            <div className='main_login_main_container'>
+
+                <div className='login_container w-screen  lg:w-full md:flex  md:justify-center '>
+                    <div className='lg:flex largescreenContainer bgblue mx-5 lg:w-auto neon-shadow'>
+                        <div className='hidden lg:inline-block'>
+                            <div className="flex justify-center w-full  items-center ">
+                                <Lottie className="" options={defaultOptions} height={400} width={400} />
+                            </div>
                         </div>
-                        <div className='w-full ml-2 '>
-                            <input type="text" className='login_form_input py-3  outllne-none w-full' placeholder='Username' />
+                        <div className='login_wrapper  mx-4 flex flex-col px-4 py-4 rounded-xl lg:w-96'>
+                            <div className='flex justify-around pt-1 '>
+                                <div className='login_button px-7 p-2  rounded-lg  text-black flex justify-center items-center shadow-lg '><span><Person4OutlinedIcon className=' icons' /></span> <p className='text-white'>Login</p></div>
+
+                            </div>
+                            <div className=' mt-4  px-2 pt-2 '>
+                                <form onSubmit={handleSubmit}>
+                                    <div className=' flex items-center rounded-xl shadow-sm mt-7 input_wrapper px-2 py-2 '>
+                                        <div className='flex justify-center items-center w-full'>
+
+                                            <div>
+                                                <Person4OutlinedIcon className='' />
+                                            </div>
+                                            <div className='w-full ml-2 '>
+                                                <input type="email" value={values.email} onChange={handleChange} onBlur={handleBlur} className='login_form_input py-3  outllne-none w-full' name='email' placeholder='E-mail' />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {
+                                        touched.email && errors.email ? <p className='errorclass'> {errors.email}</p> : null
+                                    }
+                                    <div className=' flex items-center w-full rounded-xl shadow-sm mt-7 input_wrapper px-2 py-2 '>
+                                        <div>
+                                            <LockOpenIcon className='' />
+                                        </div>
+                                        <div className='w-full ml-2 '>
+                                            <input type="password" name='password' value={values.password} onChange={handleChange} onBlur={handleBlur} className='login_form_input py-3  outllne-none w-full' placeholder='Password' />
+                                        </div>
+                                    </div>
+                                    {
+                                        touched.password && errors.password ? <p className='errorclass'> {errors.password}</p> : null
+                                    }
+                                    <div className='ml-3 mt-7'>
+                                        <h1 className='cursor-pointer text-blue underline'>Forgot Password?</h1>
+                                    </div>
+                                    <div className='login_button text-center shadow-lg  py-3 px- 2 rounded-xl mt-4 '>
+                                        <button type='submit' className='w-full  text-white '>Login</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div className='mt-7 flex'>
+                                <h1>Don't have an Account ?  </h1>
+                                <p className=' cursor-pointer  ml-2 underline'>
+                                    Sign up
+                                </p>
+                            </div>
                         </div>
                     </div>
 
-                    <div className=' flex items-center rounded-xl shadow-sm mt-7 input_wrapper px-2 py-2 '>
-                        <div>
-                            <LockOpenIcon className='' />
-                        </div>
-                        <div className='w-full ml-2 '>
-                            <input type="password" className='login_form_input py-3  outllne-none w-full' placeholder='Password' />
-                        </div>
-                    </div>
                 </div>
-                <div className='ml-3 mt-7'>
-                    <h1 className='text-blue underline'>Forgot Password?</h1>
-                </div>
-                <div className='login_button text-center shadow-lg  py-3 px- 2 rounded-xl mt-4 '>
-                    <button className='text-white '>Sign In</button>
-                </div>
-                <div className='mt-7 flex'>
-                    <h1>Don't have an Account ?  </h1>
-                    <p className='text-blue-500 ml-2 underline'>
-                        Sign up
-                    </p>
-                </div>
-            </div>
+            </div >
 
-        </div>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
+        </>
+
     )
 }
 

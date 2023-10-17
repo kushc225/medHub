@@ -1,0 +1,8 @@
+.need_container {
+  box-shadow: -17px 13px 33px -8px #000000;
+
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
