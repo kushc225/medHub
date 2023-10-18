@@ -7,10 +7,13 @@ export async function POST(req) {
   try {
     await dbConnect();
     const { token, list } = await req.json();
+    // const token = req.cookies.get("token");
+    const MILLISECONDVALUEFOR10DAYSAHEAD = 864000000;
     const decoded = await decodeToken(token);
     const newmed = await MedicineModel.create({
       owner: decoded.id,
       list: list,
+      lastdate: Date.now() + MILLISECONDVALUEFOR10DAYSAHEAD,
     });
     return NextResponse.json(
       { success: true, msg: "Medicine added Successfully", newmed },

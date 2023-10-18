@@ -10,6 +10,10 @@ const MedSchema = mongoose.Schema(
       type: [String],
       required: true,
     },
+    lastdate: {
+      type: Number,
+      required: true,
+    },
   },
 
   { timestamps: true }

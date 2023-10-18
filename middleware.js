@@ -4,8 +4,7 @@ export async function middleware(req) {
   // console.log("cookies", req.cookies.get("token"));
   let token = req.cookies.get("token")?.value || "";
   const currPath = req.nextUrl.pathname;
-  [];
-  const safePage = ["/donate", "/need"];
+  const safePage = ["/donate", "/need", "/profile"];
   if (safePage.includes(currPath) && !token) {
     const url = req.nextUrl.clone();
     url.pathname = "/login";
@@ -26,5 +25,13 @@ export async function middleware(req) {
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ["/", "/donate", "/need", "/login", "/signup", "/logout"],
+  matcher: [
+    "/",
+    "/donate",
+    "/need",
+    "/login",
+    "/signup",
+    "/logout",
+    "/profile",
+  ],
 };

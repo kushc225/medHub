@@ -45,11 +45,10 @@ const Donate = (props) => {
 
     const submitHanlder = async () => {
         try {
-
             const token = localStorage.getItem("token");
-            const list = { allMedicineList, token }
+            const list = { list: allMedicineList, token }
             let res = await axios.post('/api/donate', list)
-            // console.log(res.data.success)
+
             let flag = res.data.success;
             let toast_handler = toast.error;
             if (flag) {

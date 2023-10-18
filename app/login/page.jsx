@@ -49,11 +49,18 @@ const Login = () => {
 
             try {
                 let res = await axios.post('/api/login', values)
+                let profile = await axios.get('/api/profile');
+                profile = profile.data.userProfile;
+                console.log(profile.name)
                 res = res.data;
                 if (res.success) {
-                    // console.log(values)
-                    setUser({ email: values.email })
-                    // console.log(user);
+                    const obj = {
+                        name: profile.name,
+                        id: profile._id,
+                        email: values.email
+                    }
+                    setUser(obj);
+                    console.log(user)
                     localStorage.setItem("token", res.token);
                     router.push(`/about`);
                 } else {
