@@ -38,20 +38,20 @@ export default function Home() {
                     <div>
 
                         <p className="mt-2 lg:mt-5 text-xl lg:text-2xl text_black">
-                            Welcome to <span className="ggreen text_black">MedHub</span>- a hub of passion, innovation, and community-driven change. Our story is one of purpose, collaboration, and a shared commitment to making a positive impact.</p>
+                            Welcome to <span className="ggreen text_black">MedHub</span>{`- a hub of passion, innovation, and community-driven change. Our story is one of purpose, collaboration, and a shared commitment to making a positive impact.`}</p>
 
                     </div>
                     <div className="mt-5 lg:mt-10">
                         <h1 className="font-bold text-2xl lg:text-4xl text_black"> Our Journey Begins</h1>
                         <p className="mt-2 lg:text-2xl lg:mt-5 text_black">
-                            In 2023, a group of student from <span className="font-bold">ABESIT</span> came together with a common vision: to address the pressing issue of medicine wastage. Fueled by the belief that every individual deserves Medicine, we set out on a journey to create change.
+                            In 2023, a group of student from <span className="font-bold">ABESIT</span> {`came together with a common vision: to address the pressing issue of medicine wastage. Fueled by the belief that every individual deserves Medicine, we set out on a journey to create change.`}
                         </p>
                     </div>
                     <div className=" md:hidden lg:inline-block">
                         <div className="mt-5">
                             <h1 className="font-bold text-2xl lg:text-4xl text_black"> Our Mission</h1>
                             <p className="mt-2 lg:mt-2 lg:text-2xl text_black">
-                                At the heart of our mission lies MedHub. We are dedicated to provide a plateform in order to make sure that every needy people get medicine. Our commitment to integrity, transparency guides every step we take.
+                                {`At the heart of our mission lies MedHub. We are dedicated to provide a plateform in order to make sure that every needy people get medicine. Our commitment to integrity, transparency guides every step we take.`}
                             </p>
                         </div>
 
@@ -70,7 +70,7 @@ export default function Home() {
                             </h1>
                             <p className="mt-2 lg:mt-4 lg:text-2xl text_black">
                                 {` Our journey has just begun, and we're excited about the future. We invite you to join us on this path to  and contribute to a world where healthcare is a basic right.`} <span className="ggreen uppercase text_black">
-                                    Together, we can turn our vision into reality.
+                                    {` Together, we can turn our vision into reality.`}
                                 </span>
                             </p>
                         </div>
@@ -86,7 +86,7 @@ export default function Home() {
                 <div className="mt-5">
                     <h1 className="font-bold text-2xl lg:text-4xl text_black"> Our Mission</h1>
                     <p className="mt-2 lg:mt-5 lg:text-2xl text_black">
-                        At the heart of our mission lies MedHub. We are dedicated to provide a plateform in order to make sure that every needy people get medicine. Our commitment to integrity, transparency guides every step we take.
+                        {` At the heart of our mission lies MedHub. We are dedicated to provide a plateform in order to make sure that every needy people get medicine. Our commitment to integrity, transparency guides every step we take.`}
                     </p>
 
                 </div>
@@ -95,7 +95,7 @@ export default function Home() {
                     <h1 className="font-bold text-2xl lg:text-4xl text_black"> Empowering Communities
                     </h1>
                     <p className="mt-2 lg:mt-5 lg:text-2xl text_black">
-                        We believe that real change happens when communities come together. That's why we've built a thriving network of people who share our vision and values. Through collaboration and collective action, we are creating sustainable solutions.
+                        {` We believe that real change happens when communities come together. That's why we've built a thriving network of people who share our vision and values. Through collaboration and collective action, we are creating sustainable solutions.`}
                     </p>
 
                 </div>
@@ -105,7 +105,7 @@ export default function Home() {
                 </h1>
                 <p className="mt-2 lg:mt-5 lg:text-2xl text_black">
                     {`Our journey has just begun, and we're excited about the future. We invite you to join us on this path to  and contribute to a world where healthcare is a basic right. `}<span className="text-yellow-300 uppercase text_black">
-                        Together, we can turn our vision into reality.
+                        {`    Together, we can turn our vision into reality.`}
                     </span>
                 </p>
             </div>

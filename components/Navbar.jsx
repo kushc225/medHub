@@ -9,7 +9,7 @@ import './Navbar.css'
 import { MdOutlineDarkMode } from 'react-icons/md';
 import { BsSun } from 'react-icons/bs';
 const Navbar = () => {
-    const { user, webTheme, setTheme, toggleTheme } = useContext(UserContext)
+    const { user, webTheme, toggleTheme } = useContext(UserContext)
     const [showNavbar, setShowNavbar] = useState(false)
     const [token, setToken] = useState();
     useEffect(() => {
