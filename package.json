@@ -20,7 +20,7 @@
     "env": "^0.0.2",
     "formik": "^2.4.5",
     "jsonwebtoken": "^9.0.2",
-    "lottie-web": "^5.12.2",
+    "lottie-react": "^2.4.0",
     "mongoose": "^7.6.2",
     "next": "latest",
     "next-videos": "^1.4.1",

@@ -1,18 +1,29 @@
 "use client";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 import Link from "next/link";
-import animationData1 from "../animation/b.json";
-import animationData2 from "../animation/animation_ln8g3xlw.json";
 import medanimation from "../animation/medanimation.json";
 import "./home.css";
 export default function Home() {
-  const defaultOptions2 = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData1,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
+
+  const interactivity = {
+    mode: "scroll",
+    actions: [
+      {
+        visibility: [0, 0.2],
+        type: "stop",
+        frames: [0],
+      },
+      {
+        visibility: [0.2, 0.45],
+        type: "seek",
+        frames: [0, 45],
+      },
+      {
+        visibility: [0.45, 1.0],
+        type: "loop",
+        frames: [45, 60],
+      },
+    ],
   };
   return (
     <>
@@ -39,8 +50,12 @@ export default function Home() {
         </div>
         {/* images */}
 
-        <div className="hidden w-auto md:inline-block md:w-4/6">
-          <Lottie className="lg:ml-48" options={defaultOptions2} height={400} width={400} />
+        <div className="hidden w-auto md:inline-block md:w-3/6">
+          <div className="lg:ml-48">
+            <Lottie animationData={medanimation} style={{ height: 500, width: 500 }} loop={true}
+              interactivity={interactivity}
+            />
+          </div>
         </div>
       </div>
     </>

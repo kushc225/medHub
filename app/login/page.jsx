@@ -8,7 +8,7 @@ import loginAnimation3 from '../../animation/login3.json'
 import Person4OutlinedIcon from '@mui/icons-material/Person4Outlined';
 import axios from 'axios';
 import { useFormik } from 'formik';
-import Lottie from 'react-lottie';
+import Lottie from 'lottie-react';
 import './login.css'
 import { loginSchema } from '@/assests/Schema/Schema';
 import { useRouter } from "next/navigation";

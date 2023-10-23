@@ -1,5 +1,5 @@
 "use client";
-import Lottie from "react-lottie";
+import Lottie from "lottie-react";
 import Link from "next/link";
 import { useContext } from "react";
 import aboutUsAnimation from "../../animation/about.json";
@@ -20,10 +20,15 @@ export default function Home() {
         <>
             <div className="ml-5 pb-4 lg:justify-normal  md:flex md:flex-row-reverse md:justify-center md:mt-5">
                 <div className="md:inline-block lg:hidden hidden">
-                    <Lottie className="" options={defaultOptions} height={400} width={400} />
+                    {/* <Lottie className="" options={defaultOptions} height={400} width={400} /> */}
+                    <Lottie animationData={aboutUsAnimation} style={{ height: 400, width: 400 }} loop={true} />
                 </div>
                 <div className="lg:inline-block hidden">
-                    <Lottie className="" options={defaultOptions} height={600} width={600} />
+
+                    {/* <Lottie className="" options={defaultOptions} height={600} width={600} /> */}
+                    {/* <Lottie className="" options={aboutUsAnimation} height={600} width={600} /> */}
+                    <Lottie animationData={aboutUsAnimation} style={{ height: 600, width: 600 }} loop={true} />
+
                 </div>
 
                 <div className=" lg:w-2/3">
