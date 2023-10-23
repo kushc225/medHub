@@ -116,10 +116,10 @@ const Login = () => {
                                         touched.password && errors.password ? <p className='errorclass'> {errors.password}</p> : null
                                     }
                                     <div className='ml-3 mt-7'>
-                                        <h1 className='cursor-pointer text-blue underline'>Forgot Password?</h1>
+                                        <h1 className='cursor-pointer text-blue underline'>{`Forgot Password ?`}</h1>
                                     </div>
                                     <div className='login_button text-center shadow-lg  py-3 px- 2 rounded-xl mt-4 '>
-                                        <button type='submit' className='w-full  text-white '>Login</button>
+                                        <button type='submit' className='w-full  text-white '>{`Login`}</button>
                                     </div>
                                 </form>
                             </div>
@@ -127,7 +127,7 @@ const Login = () => {
                             <div className='mt-7 flex'>
                                 <h1>{`Don't have an Account ?  `}</h1>
                                 <p className=' cursor-pointer  ml-2 underline'>
-                                    Sign up
+                                    {` Sign up`}
                                 </p>
                             </div>
                         </div>
