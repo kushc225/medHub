@@ -16,9 +16,9 @@ const Navbar = () => {
         setToken(localStorage.getItem('token'))
     }, [token])
     const pathname = usePathname()
-    useEffect(() => {
-        toggleTheme();
-    }, [toggleTheme])
+    // useEffect(() => {
+    //     toggleTheme();
+    // }, [])
     return (
         <div className='navbar header h-14 '>
             <div className=' px-4 h-full wrapper flex justify-between items-center'>
