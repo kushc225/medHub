@@ -1,21 +1,8 @@
 "use client";
 import Lottie from "lottie-react";
-import Link from "next/link";
-import { useContext } from "react";
 import aboutUsAnimation from "../../animation/about.json";
 import "./about.css";
-import UserContext from "@/context/UserContext";
 export default function Home() {
-    const defaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: aboutUsAnimation,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice",
-        },
-    };
-    const { user } = useContext(UserContext);
-
     return (
         <>
             <div className="ml-5 pb-4 lg:justify-normal  md:flex md:flex-row-reverse md:justify-center md:mt-5">

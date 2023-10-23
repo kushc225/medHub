@@ -18,7 +18,7 @@ const Navbar = () => {
     const pathname = usePathname()
     useEffect(() => {
         toggleTheme();
-    }, [])
+    }, [toggleTheme])
     return (
         <div className='navbar header h-14 '>
             <div className=' px-4 h-full wrapper flex justify-between items-center'>
@@ -45,7 +45,7 @@ const Navbar = () => {
                                 <li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/contact' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/contact">Contact Us</Link></li>
                                 <li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/signup' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/signup">Sign Up</Link></li>
                                 {
-                                    user === null ? (<li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/login' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/login">Login</Link></li>) : (<li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/logout' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/logout">Logout</Link></li>)
+                                    user === null ? (<li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/login' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/login">Login</Link></li>) : (<li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/logout' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/logout">{`Logout`}</Link></li>)
                                 }
                             </ul>
                             {/* navbar for mobile end */}
@@ -77,9 +77,6 @@ const Navbar = () => {
                             user === null ? <li className='mx-2 '><Link className={`'${pathname === '/login' && ' active hoverclass '}md:text-xl lg:text-2xl '`} href="/login">Login</Link></li> :
                                 <li className='mx-2 '><Link className={`'${pathname === '/logout' && ' active hoverclass '}md:text-xl lg:text-2xl '`} href="/logout">Logout</Link></li>
                         }
-
-
-
                     </ul>
                 </div>
                 {/* large screen navar  end */}
