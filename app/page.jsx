@@ -4,27 +4,6 @@ import Link from "next/link";
 import medanimation from "../animation/medanimation.json";
 import "./home.css";
 export default function Home() {
-
-  const interactivity = {
-    mode: "scroll",
-    actions: [
-      {
-        visibility: [0, 0.2],
-        type: "stop",
-        frames: [0],
-      },
-      {
-        visibility: [0.2, 0.45],
-        type: "seek",
-        frames: [0, 45],
-      },
-      {
-        visibility: [0.45, 1.0],
-        type: "loop",
-        frames: [45, 60],
-      },
-    ],
-  };
   return (
     <>
       <div className="flex flex-col mt-5 md:flex-row ml-4 ">
@@ -52,9 +31,7 @@ export default function Home() {
 
         <div className="hidden w-auto md:inline-block md:w-3/6">
           <div className="lg:ml-48">
-            <Lottie animationData={medanimation} style={{ height: 500, width: 500 }} loop={true}
-              interactivity={interactivity}
-            />
+            <Lottie animationData={medanimation} style={{ height: 500, width: 500 }} loop={true} />
           </div>
         </div>
       </div>
