@@ -3,6 +3,7 @@ export async function middleware(req) {
   // req.cookies.delete("token");
   // console.log("cookies", req.cookies.get("token"));
   let token = req.cookies.get("token")?.value || "";
+  console.log(token);
   const currPath = req.nextUrl.pathname;
   const safePage = ["/donate", "/need", "/profile"];
   if (safePage.includes(currPath) && !token) {

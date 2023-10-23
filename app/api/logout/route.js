@@ -2,6 +2,13 @@ import { NextResponse } from "next/server";
 
 export async function GET(req) {
   try {
+    let token = req.cookies.get("token")?.value || "";
+    if (!token) {
+      const url = req.nextUrl.clone();
+      url.pathname = "/login";
+      return NextResponse.redirect(url);
+      // return NextResponse.json({success:true,msg:'already logout'}, {status : 401})
+    }
     const res = NextResponse.json(
       {
         success: true,
