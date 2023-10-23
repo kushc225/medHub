@@ -1,9 +1,11 @@
 .header {
-  width: 100vw !important;
+  width: 100vw;
 }
 .dropdown {
   background: #fff;
   z-index: 100;
+}
+.light .dropdown {
 }
 .dropdown li {
   color: black;
@@ -25,6 +27,9 @@
 .navbar li a {
   font-family: sans-serif;
 }
+.light .navbar li a {
+  color: black;
+}
 
 li a:hover {
   transition: all 0.5s;
@@ -40,11 +45,17 @@ li a:hover {
 .active {
   padding: 10px 20px;
   background: #1d136c;
-
   border-radius: 20px;
-
   -webkit-box-shadow: 0px 0px 213px 44px rgba(20, 3, 255, 0.24);
   -moz-box-shadow: 0px 0px 213px 44px rgba(20, 3, 255, 0.24);
   box-shadow: 0px 0px 213px 44px rgba(20, 3, 255, 0.24);
   transition: all 0.5s ease-in-out;
+}
+.light .active {
+  color: white !important;
+}
+.darkmode {
+  /* color: black !important; */
+  width: 2rem;
+  height: 2rem;
 }

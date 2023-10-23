@@ -5,16 +5,20 @@ import { usePathname } from 'next/navigation'
 import { FaBars } from 'react-icons/fa'
 import { ImCross } from 'react-icons/im'
 import Link from 'next/link'
-import './style.css'
+import './Navbar.css'
+import { MdOutlineDarkMode } from 'react-icons/md';
+import { BsSun } from 'react-icons/bs';
 const Navbar = () => {
-    const { user } = useContext(UserContext)
+    const { user, webTheme, setTheme, toggleTheme } = useContext(UserContext)
     const [showNavbar, setShowNavbar] = useState(false)
     const [token, setToken] = useState();
     useEffect(() => {
         setToken(localStorage.getItem('token'))
     }, [token])
     const pathname = usePathname()
-    // console.log(pathname)
+    useEffect(() => {
+        toggleTheme();
+    }, [])
     return (
         <div className='navbar header h-14 '>
             <div className=' px-4 h-full wrapper flex justify-between items-center'>
@@ -54,7 +58,14 @@ const Navbar = () => {
                 }
 
                 {/* large screen navar  start */}
-                <div className="hidden md:inline-block ">
+                <div className="hidden  md:flex justify-center ">
+                    <div className='mr-2 cursor-pointer' onClick={toggleTheme}>
+                        {
+                            webTheme === '' ? < BsSun className='darkmode' /> : <MdOutlineDarkMode className='darkmode' />
+                        }
+
+                    </div>
+
                     <ul className='md:flex   justify-end  items-center w-full '>
                         <li className='mx-2 '><Link className={`'${pathname === '/' && ' active hoverclass '}md:text-xl lg:text-2xl '`} href="/">Home</Link></li>
                         <li className='mx-2 '><Link className={`'${pathname === '/donate' && ' active hoverclass '}md:text-xl lg:text-2xl '`} href="/donate">Donate Us</Link></li>

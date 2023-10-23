@@ -25,7 +25,7 @@ const Need = () => {
         <>
             <div className='need_container w-full mt-40 sm:w-5/6 md:w-4/6 lg:w-3/6 '>
                 <div className='mx-2 '>
-                    <h1 className='py-3 font-bold text-center text-2xl font-mono'>Search Medicine</h1>
+                    <h1 className='py-3 font-bold text-center text-2xl font-mono text_black'>Search Medicine</h1>
                     <div className='mt-4 '>
                         <div className=' flex flex-col md:flex-row w-full md:justify-around '>
                             <div className='w-full border-2 rounded-xl border-blue-500 md:w-3/6'>
@@ -42,9 +42,9 @@ const Need = () => {
 
                 <div className='flex justify-center need_page_table_container flex-col mt-2'>
                     {data !== null && <div className='flex rounded-xl justify-around mt-3 px-2 py-2 border-2 border-blue-500'>
-                        <h1 className='font-bold uppercase'>Sno</h1>
-                        <h1 className='font-bold uppercase'>Name</h1>
-                        <h1 className='font-bold uppercase'>phone</h1>
+                        <h1 className='font-bold uppercase text_black'>Sno</h1>
+                        <h1 className='font-bold uppercase text_black'>Name</h1>
+                        <h1 className='font-bold uppercase text_black'>phone</h1>
                     </div>
                     }
                     {
@@ -66,9 +66,9 @@ const Need = () => {
 const Card = ({ name, phone, idx }) => {
     return <>
         <div className={` ${idx % 2 !== 0 ? ' odd ' : ' '} ' flex justify-around shadow-sm mt-3 px-2  border-2 border-blue-500 py-2 rounded-xl'`}>
-            <h1 className=''>{idx + 1}</h1>
-            <h1 className='capitalize'>{name}</h1>
-            <h1 className='capitalize'>{phone}</h1>
+            <h1 className='text_black '>{idx + 1}</h1>
+            <h1 className='text_black capitalize'>{name}</h1>
+            <h1 className='text_black capitalize'>{phone}</h1>
         </div>
     </>
 }

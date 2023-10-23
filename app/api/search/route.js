@@ -1,12 +1,9 @@
 import { NextResponse } from "next/server";
-import decodeToken from "@/features/decodeToken";
 import { dbConnect } from "@/features/dbConnect";
 import MedicineModel from "@/models/MedicineModel";
-import UserModel from "@/models/UserModel";
 export async function POST(req) {
   try {
     dbConnect();
-    const token = req.cookies.get("token");
     const { med_name } = await req.json();
     const currTime = Date.now();
 

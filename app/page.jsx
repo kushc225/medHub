@@ -21,7 +21,7 @@ export default function Home() {
 
         <div className="w-2/2 mt-12 lg:w-4/6 ">
 
-          <p className="text-3xl  pl-4 lg:text-5xl font-sans  tracking-wide home_page_para bg-transparent">
+          <p className="font_page_paragraph text-3xl  pl-4 lg:text-5xl font-sans  tracking-wide home_page_para bg-transparent">
             At
             <span className="font-cursive font-bold text-5xl ml-2 ggreen cursor-pointer  inline-block">
               Medhub,

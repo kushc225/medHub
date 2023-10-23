@@ -22,12 +22,16 @@ body {
   width: 100vw;
   overflow-x: hidden;
 }
+.light body {
+  background: rgb(255 253 253) !important;
+}
 ::placeholder {
   color: rgb(64, 255, 0) !important;
 }
 .yellow {
   background: rgb(255, 255, 13);
 }
+
 input:focus {
   background: transparent;
 }

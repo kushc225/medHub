@@ -13,3 +13,9 @@
 .odd {
   background: #39394a;
 }
+.light .odd {
+  background: #d2d2f4;
+}
+.light .text_black {
+  color: black;
+}

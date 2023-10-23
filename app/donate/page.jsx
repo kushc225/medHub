@@ -76,7 +76,7 @@ const Donate = (props) => {
 
             <div className='donate_container  mt-12 mx-2 '>
                 <div className='donate_heading '>
-                    <h1 className='capitalize text-center mg:text-3xl lg:text-3xl mt-2'>please Enter the details of the medicine</h1>
+                    <h1 className='capitalize text-center mg:text-3xl lg:text-3xl mt-2 text_black'>please Enter the details of the medicine</h1>
                 </div>
             </div>
             <div className=''>
@@ -106,7 +106,7 @@ const Donate = (props) => {
 
                     {
                         allMedicineList.length >= 1 && (<div className='text-center mt-3'>
-                            <button onClick={() => submitHanlder()} className='py-2 px-3 border-2 border-blue-400 rounded-xl hoverclass hover:bg-blue-500  hover:text-white transition-all'>Save List</button>
+                            <button onClick={() => submitHanlder()} className='py-2 px-3 border-2 border-blue-400 rounded-xl hoverclass hover:bg-blue-500  hover:text-white transition-all text_black'>Save List</button>
                         </div>)
                     }
                 </div>
