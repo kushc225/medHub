@@ -59,7 +59,7 @@ export default function Home() {
                             <h1 className="font-bold text-4xl lg:text-4xl text_black"> Empowering Communities
                             </h1>
                             <p className="mt-2 lg:mt-4 lg:text-2xl text_black">
-                                We believe that real change happens when communities come together. That's why we've built a thriving network of people who share our vision and values. Through collaboration and collective action, we are creating sustainable solutions.
+                                {`  We believe that real change happens when communities come together. That's why we've built a thriving network of people who share our vision and values. Through collaboration and collective action, we are creating sustainable solutions.`}
                             </p>
 
                         </div>
@@ -69,7 +69,7 @@ export default function Home() {
                             <h1 className="font-bold text-4xl lg:text-4xl text_black"> Our Vision
                             </h1>
                             <p className="mt-2 lg:mt-4 lg:text-2xl text_black">
-                                Our journey has just begun, and we're excited about the future. We invite you to join us on this path to  and contribute to a world where healthcare is a basic right. <span className="ggreen uppercase text_black">
+                                {` Our journey has just begun, and we're excited about the future. We invite you to join us on this path to  and contribute to a world where healthcare is a basic right.`} <span className="ggreen uppercase text_black">
                                     Together, we can turn our vision into reality.
                                 </span>
                             </p>
@@ -104,7 +104,7 @@ export default function Home() {
                 <h1 className="font-bold text-2xl lg:text-4xl text_black"> Our Vision
                 </h1>
                 <p className="mt-2 lg:mt-5 lg:text-2xl text_black">
-                    Our journey has just begun, and we're excited about the future. We invite you to join us on this path to  and contribute to a world where healthcare is a basic right. <span className="text-yellow-300 uppercase text_black">
+                    {`Our journey has just begun, and we're excited about the future. We invite you to join us on this path to  and contribute to a world where healthcare is a basic right. `}<span className="text-yellow-300 uppercase text_black">
                         Together, we can turn our vision into reality.
                     </span>
                 </p>

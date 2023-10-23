@@ -190,7 +190,7 @@ const Sign = () => {
                             <button type='submit' className='text-white '>Sign In</button>
                         </div>
                         <div className='mt-7'>
-                            <h1>Don't have an Account <span className='text-blue-500 underline'>Sign up</span></h1>
+                            <h1>{`Don't have an Account `}<span className='text-blue-500 underline'>Sign up</span></h1>
                         </div>
                     </div>
                 </form>
@@ -311,7 +311,7 @@ const Sign = () => {
                     </form>
 
                     <div className='mt-7'>
-                        <h1>Don't have an Account <span className='text-blue-500 underline'>Sign up</span></h1>
+                        <h1>{`Don't have an Account`} <span className='text-blue-500 underline'>Sign up</span></h1>
                     </div>
                 </div>
 

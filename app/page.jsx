@@ -38,10 +38,10 @@ export default function Home() {
               Medhub,
             </span>
 
-            we hold a deep-rooted belief in the fundamental principle that
+            {`   we hold a deep-rooted belief in the fundamental principle that
             healthcare is a basic human right. We are fueled by the unwavering
             conviction that access to quality healthcare should never be
-            determined by one's financial circumstances.
+            determined by one's financial circumstances.`}
           </p>
           <div className="flex mt-12 ml-3 mx-2 ">
             <button className="hoverclass  bggreen mx-2 rounded-xl px-7 py-4 "><Link href="/donate">Donate </Link></button>

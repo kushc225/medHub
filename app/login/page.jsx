@@ -125,7 +125,7 @@ const Login = () => {
                             </div>
 
                             <div className='mt-7 flex'>
-                                <h1>Don't have an Account ?  </h1>
+                                <h1>{`Don't have an Account ?  `}</h1>
                                 <p className=' cursor-pointer  ml-2 underline'>
                                     Sign up
                                 </p>
