@@ -6,7 +6,7 @@ export async function middleware(req) {
   // console.log(token);
   const currPath = req.nextUrl.pathname;
   const safePage = ["/donate", "/need", "/profile"];
-  if (safePage.includes(currPath) && token === "") {
+  if (currPath === "/donate" && !token) {
     const url = req.nextUrl.clone();
     url.pathname = "/login";
     return NextResponse.redirect(url);
