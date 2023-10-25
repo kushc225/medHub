@@ -7,12 +7,13 @@ import { useContext } from 'react'
 
 const Logout = () => {
     const router = useRouter();
-    const { setUser } = useContext(UserContext)
+    const { setToken, setUser } = useContext(UserContext)
     const handleLogout = async () => {
         try {
             await axios.get('/api/logout')
             localStorage.removeItem("token")
             setUser(null);
+            setToken(undefined)
             router.push('/login')
         } catch (error) {
             console.log(error.message);

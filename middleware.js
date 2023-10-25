@@ -3,10 +3,11 @@ export async function middleware(req) {
   // req.cookies.delete("token");
   // console.log("cookies", req.cookies.get("token"));
   let token = req.cookies.get("token")?.value || "";
-  // console.log(token);
+  // console.log({ token });
   const currPath = req.nextUrl.pathname;
-  const safePage = ["/donate", "/need", "/profile"];
-  if (currPath === "/donate" && !token) {
+  // const safePage = ["/donate", "/need", "/profile"];
+  if ((currPath === "/donate" && !token) || (currPath === "/need" && !token)) {
+    // console.log(currPath, { token });
     const url = req.nextUrl.clone();
     url.pathname = "/login";
     return NextResponse.redirect(url);
@@ -31,13 +32,5 @@ export async function middleware(req) {
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: [
-    "/",
-    "/donate",
-    "/need",
-    "/login",
-    "/signup",
-    "/logout",
-    "/profile",
-  ],
+  matcher: ["/donate", "/login", "/need"],
 };

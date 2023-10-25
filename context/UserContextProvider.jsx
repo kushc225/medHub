@@ -5,6 +5,7 @@ import UserContext from "./UserContext";
 const UserContextProivder = ({ children }) => {
     const [user, setUser] = useState(null);
     const [webTheme, setTheme] = useState("");
+    const [token, setToken] = useState(undefined);
     const toggleTheme = () => {
         // console.log({ webTheme })
         setTheme(webTheme === '' ? 'light' : '')
@@ -17,7 +18,7 @@ const UserContextProivder = ({ children }) => {
         }
 
     }
-    return <UserContext.Provider value={{ user, setUser, webTheme, setTheme, toggleTheme }}>
+    return <UserContext.Provider value={{ token, setToken, user, setUser, webTheme, setTheme, toggleTheme }}>
         {children}
     </UserContext.Provider>
 }

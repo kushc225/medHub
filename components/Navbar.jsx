@@ -9,16 +9,18 @@ import './Navbar.css'
 import { MdOutlineDarkMode } from 'react-icons/md';
 import { BsSun } from 'react-icons/bs';
 const Navbar = () => {
-    const { user, webTheme, toggleTheme } = useContext(UserContext)
+    const { token, setToken, user, webTheme, toggleTheme } = useContext(UserContext)
     const [showNavbar, setShowNavbar] = useState(false)
-    const [token, setToken] = useState();
+
     useEffect(() => {
-        setToken(localStorage.getItem('token'))
+
+    }, [user])
+    useEffect(() => {
+        setToken(() => localStorage.getItem('token'));
+        // console.log({ token })
     }, [token])
     const pathname = usePathname()
-    // useEffect(() => {
-    //     toggleTheme();
-    // }, [])
+
     return (
         <div className='navbar header h-14 '>
             <div className=' px-4 h-full wrapper flex justify-between items-center'>
@@ -39,13 +41,18 @@ const Navbar = () => {
                         <div className='flex w-screen'>
                             <ul className='flex flex-col text-center mt-12 justify-center items-center w-full '>
                                 <li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/">Home</Link></li>
-                                <li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/donate' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/donate">Donate Us</Link></li>
-                                <li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/need' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/need">Need</Link></li>
-                                <li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/about' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/about">About</Link></li>
-                                <li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/contact' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/contact">Contact Us</Link></li>
-                                <li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/signup' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/signup">Sign Up</Link></li>
                                 {
-                                    user === null ? (<li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/login' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/login">Login</Link></li>) : (<li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/logout' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/logout">{`Logout`}</Link></li>)
+                                    token !== null && <li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/donate' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/donate">Donate Us</Link></li>
+                                }
+                                {
+                                    token !== null && <li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/need' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/need">Need</Link></li>
+                                }
+
+                                <li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/about' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/about">About</Link></li>
+
+                                {token === null && <li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/signup' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/signup">Sign Up</Link></li>}
+                                {
+                                    token === null ? (<li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/login' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/login">Login</Link></li>) : (<li onClick={() => setShowNavbar(!showNavbar)} className={`'${pathname === '/logout' && ' active hoverclass '}'py-3 border-b-2 w-5/6 text-center'`}><Link className='text-2xl ' href="/logout">{`Logout`}</Link></li>)
                                 }
                             </ul>
                             {/* navbar for mobile end */}
@@ -68,13 +75,16 @@ const Navbar = () => {
 
                     <ul className='md:flex   justify-end  items-center w-full '>
                         <li className='mx-2 '><Link className={`'${pathname === '/' && ' active hoverclass '}md:text-xl lg:text-2xl '`} href="/">Home</Link></li>
-                        <li className='mx-2 '><Link className={`'${pathname === '/donate' && ' active hoverclass '}md:text-xl lg:text-2xl '`} href="/donate">Donate Us</Link></li>
-                        <li className='mx-2 '><Link className={`'${pathname === '/need' && ' active hoverclass '}md:text-xl lg:text-2xl '`} href="/need">Need</Link></li>
-                        <li className='mx-2 '><Link className={`'${pathname === '/about' && ' active hoverclass '}md:text-xl lg:text-2xl '`} href="/about">About</Link></li>
-                        <li className='mx-2 '><Link className={`'${pathname === '/contact' && ' active hoverclass '}md:text-xl lg:text-2xl '`} href="/contact">Contact Us</Link></li>
-                        <li className='mx-2 '><Link className={`'${pathname === '/signup' && ' active hoverclass '}md:text-xl lg:text-2xl '`} href="/signup">Sign Up</Link></li>
+                        {token !== null && <li className='mx-2 '><Link className={`'${pathname === '/donate' && ' active hoverclass '}md:text-xl lg:text-2xl '`} href="/donate">Donate Us</Link></li>
+                        }
                         {
-                            user === null ? <li className='mx-2 '><Link className={`'${pathname === '/login' && ' active hoverclass '}md:text-xl lg:text-2xl '`} href="/login">Login</Link></li> :
+                            token !== null &&
+                            <li className='mx-2 '><Link className={`'${pathname === '/need' && ' active hoverclass '}md:text-xl lg:text-2xl '`} href="/need">Need</Link></li>}
+
+                        <li className='mx-2 '><Link className={`'${pathname === '/about' && ' active hoverclass '}md:text-xl lg:text-2xl '`} href="/about">About</Link></li>
+                        {token === null && <li className='mx-2 '><Link className={`'${pathname === '/signup' && ' active hoverclass '}md:text-xl lg:text-2xl '`} href="/signup">Sign Up</Link></li>}
+                        {
+                            token === null ? <li className='mx-2 '><Link className={`'${pathname === '/login' && ' active hoverclass '}md:text-xl lg:text-2xl '`} href="/login">Login</Link></li> :
                                 <li className='mx-2 '><Link className={`'${pathname === '/logout' && ' active hoverclass '}md:text-xl lg:text-2xl '`} href="/logout">Logout</Link></li>
                         }
                     </ul>

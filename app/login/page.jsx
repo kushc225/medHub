@@ -1,8 +1,9 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import loginAnimation from '../../animation/login.json'
 import { useContext } from 'react';
+import Link from 'next/link';
 import loginAnimation2 from '../../animation/login2.json'
 import loginAnimation3 from '../../animation/login3.json'
 import Person4OutlinedIcon from '@mui/icons-material/Person4Outlined';
@@ -16,7 +17,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import UserContext from '@/context/UserContext';
 
 const Login = () => {
-    const { user, setUser } = useContext(UserContext);
+    const { token, setToken, user, setUser } = useContext(UserContext);
     const defaultOptions = {
         loop: true,
         autoplay: true,
@@ -46,12 +47,10 @@ const Login = () => {
                 progress: undefined,
                 theme: "dark",
             };
-
             try {
                 let res = await axios.post('/api/login', values)
                 let profile = await axios.get('/api/profile');
                 profile = profile.data.userProfile;
-                console.log(profile.name)
                 res = res.data;
                 if (res.success) {
                     const obj = {
@@ -59,20 +58,33 @@ const Login = () => {
                         id: profile._id,
                         email: values.email
                     }
-                    setUser(obj);
-                    console.log(user)
+                    setUser((prev) => obj);
+                    setToken(() => res.token);
                     localStorage.setItem("token", res.token);
-                    router.push(`/about`);
+                    router.push('/donate')
                 } else {
                     toast.error(res.data.msg, toast_hanlder_object)
                 }
             } catch (err) {
-                toast.error('Invalid Credentials', toast_hanlder_object)
+                toast.error(err.messaage, toast_hanlder_object)
             }
         }
     })
+
     return (
         <>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
 
             <div className='main_login_main_container'>
 
@@ -80,7 +92,8 @@ const Login = () => {
                     <div className='lg:flex largescreenContainer bgblue mx-5 lg:w-auto neon-shadow'>
                         <div className='hidden lg:inline-block'>
                             <div className="flex justify-center w-full  items-center ">
-                                <Lottie className="" options={defaultOptions} height={400} width={400} />
+                                {/* <Lottie className="" options={defaultOptions} height={400} width={400} /> */}
+                                <Lottie animationData={loginAnimation} style={{ height: 400, width: 400 }} loop={true} />
                             </div>
                         </div>
                         <div className='login_wrapper  mx-4 flex flex-col px-4 py-4 rounded-xl lg:w-96'>
@@ -126,9 +139,9 @@ const Login = () => {
 
                             <div className='mt-7 flex'>
                                 <h1>{`Don't have an Account ?  `}</h1>
-                                <p className=' cursor-pointer  ml-2 underline'>
+                                <Link href='/signup' className='hover:text-xl  cursor-pointer  ml-2 underline transition-all'>
                                     {` Sign up`}
-                                </p>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -136,18 +149,7 @@ const Login = () => {
                 </div>
             </div >
 
-            <ToastContainer
-                position="top-center"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
+
         </>
 
     )
